@@ -1,0 +1,64 @@
+####get###
+GET http://localhost:4004/Applibrary/AppCategories
+
+####Post#########
+
+POST http://localhost:4004/Applibrary/AppCategories
+Content-Type: application/json
+
+{ 
+ "categoryname" : "Asset Management" 
+}
+
+####get###
+GET http://localhost:4004/Applibrary/MindsetTeam
+
+####Post#########
+
+POST http://localhost:4004/Applibrary/MindsetTeam
+Content-Type: application/json
+
+{
+	"cat_id_cat_id": "00d88f06-e195-4133-9ff8-e28b209be695",
+	"AppName": null,
+	"Description": null,
+	"Industry": null,
+	"TechTags": null,
+	"Status": null,
+	"DesignThinking": 1,
+	"DesignThinkingTeam": null,
+	"DTDate": null,
+	"DTArtifactsGdrive": null,
+	"PrototypeLink": null,
+	"Architect": null,
+	"NoofSprints": null,
+	"ScrumMaster": null,
+	"Estimations": null,
+	"GITLink": null,
+	"AssignTo": null,
+	"DemoReady": null,
+	"DemoVideo": null,
+	"IntegratetoAppLibrary": null,
+	"SemanticObj": null,
+	"Action": null,
+	"SOWLink": null
+}
+
+####get###
+GET http://localhost:4004/Applibrary/Clients
+
+
+####Post#########
+
+POST http://localhost:4004/Applibrary/Clients
+Content-Type: application/json
+
+
+{
+	"appId_id": "0989d69b-89ee-46ad-b8bd-52f953cf47f5",
+	"ClientName" : "SoftWare",
+    "Location" : null
+}
+
+
+

@@ -1,0 +1,62 @@
+{
+  "name": "appLibrary",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@sap/cds": "^5",
+    "cf": "^0.0.3",
+    "cf-cli": "^0.2.0",
+    "express": "^4",
+    "hdb": "^0.18.3"
+  },
+  "devDependencies": {
+    "sqlite3": "^4.2.0"
+  },
+  "scripts": {
+    "start": "cds run"
+  },
+  "sapux": [
+    "app/fiori"
+  ],
+  "eslintConfig": {
+    "extends": "eslint:recommended",
+    "env": {
+      "es2020": true,
+      "node": true,
+      "jest": true,
+      "mocha": true
+    },
+    "globals": {
+      "SELECT": true,
+      "INSERT": true,
+      "UPDATE": true,
+      "DELETE": true,
+      "CREATE": true,
+      "DROP": true,
+      "CDL": true,
+      "CQL": true,
+      "CXL": true,
+      "cds": true
+    },
+    "rules": {
+      "no-console": "off",
+      "require-atomic-updates": "off"
+    }
+  },
+  "cds": {
+    "requires": {
+      "db": {
+        "kind": "hana",
+        "credentials": {
+          "database": "db/applibrary.db"
+        }
+      }
+    },
+    "hana": {
+      "deploy-format": "hdbtable"
+    }
+  }
+}

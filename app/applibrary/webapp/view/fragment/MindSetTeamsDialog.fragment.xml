@@ -1,0 +1,32 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form">
+		<Popover
+			id="myPopover"
+			showHeader="false"
+			contentWidth="320px"
+			contentHeight="500px"
+			placement="Auto"
+			ariaLabelledBy="master-title">
+			<Page
+				id="master"
+				class="sapUiResponsivePadding--header"
+				title="{i18n>mind_set_teams}">
+				<headerContent>
+					<ToolbarSpacer/>				
+					<Button icon="sap-icon://add" press="addFragmentTeams"/>
+				</headerContent>
+				<List
+					id="list"
+					items="{
+						path: 'ViewModel>/MindSetTeamsSet',
+						sorter: { path: 'email' }}">
+					<StandardListItem
+						title="{ViewModel>email}"
+						type="Active"
+						press="onNavToProduct"
+						iconDensityAware="false"
+						iconInset="false"/>
+				</List>
+			</Page>
+		</Popover>
+</core:FragmentDefinition>

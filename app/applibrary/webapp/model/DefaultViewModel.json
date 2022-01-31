@@ -1,0 +1,125 @@
+{
+    "CatalogObj" :{
+        "CategoryName": null,
+		"category_type": []
+    },
+	"teamObj" :{
+        "email": null,
+		"first_name": null,
+		"last_name": null,
+		"type": null
+    },
+    "tableArray" : [],
+	"AppObject" : {
+		"appClients":[]
+	},
+	"AppdetailsObj": {
+		"cat_id_cat_id": null,
+		"AppName": null,
+		"Description": null,
+		"Industry": null,
+		"TechTags": null,
+		"Status" : "Draft",
+		"DesignThinking": false,
+		"DesignThinkingTeam": null,
+		"DTDate": null,
+		"DTArtifactsGdrive": null,
+		"PrototypeLink": null,
+		"Architect": null,
+		"NoofSprints": null,
+		"ScrumMaster": null,
+		"Estimations": null,
+		"GITLink": null,
+		"AssignTo": null,
+		"DemoReady": null,
+		"DemoVideo": null,
+		"IntegratetoAppLibrary": null,
+		"SemanticObj": null,
+		"Action": null,
+		"SOWLink": null
+
+	},
+	"designVisible" : false,
+	"buttonChecks":{
+		"next": true,
+		"save": false
+	},
+	"visible_payload": {
+		"AppName":{
+			"required": true,
+			"valueState": "None"
+		},
+		"Industry":{
+			"required": true,
+			"valueState": "None"
+		},
+		"TechTags":{
+			"required": true,
+			"valueState": "None"
+		}
+	},
+	"appDetailTabSelect": "AppDetails",
+	"listButtonVisible": true,
+	"DesignThinkingTeamSet" : [
+		{"Value": "DT 1"},
+		{"Value": "DT 2"},
+		{"Value": "DT 3"},
+		{"Value": "DT 4"},
+		{"Value": "DT 5"}
+	],
+	"DevTeamSet" : [
+		{"Value": "DevTeam 1"},
+		{"Value": "DevTeam 2"},
+		{"Value": "DevTeam 3"},
+		{"Value": "DevTeam 4"},
+		{"Value": "DevTeam 5"}
+	],
+	"ArchitectSet" : [
+		{"Value": "Architect 1"},
+		{"Value": "Architect 2"},
+		{"Value": "Architect 3"},
+		{"Value": "Architect 4"},
+		{"Value": "Architect 5"}
+	],
+	"ScrumMasterSet" : [
+		{"Value": "ScrumMaster 1"},
+		{"Value": "ScrumMaster 2"},
+		{"Value": "ScrumMaster 3"},
+		{"Value": "ScrumMaster 4"},
+		{"Value": "ScrumMaster 5"}
+	],
+	"MindSetTeams" : [
+		{"Value": "MindSetTeams 1"},
+		{"Value": "MindSetTeams 2"},
+		{"Value": "MindSetTeams 3"},
+		{"Value": "MindSetTeams 4"},
+		{"Value": "MindSetTeams 5"}
+	],
+	"SalesTeamSet" : [
+		{"Value": "SalesTeam 1"},
+		{"Value": "SalesTeam 2"},
+		{"Value": "SalesTeam 3"},
+		{"Value": "SalesTeam 4"},
+		{"Value": "SalesTeam 5"}
+	],
+	"AssignToSet": [
+		{"Key": "SalesTeam", "Value": "Sales Team"},
+		{"Key": "SoftwareTeam", "Value": "Software Team"}
+	],
+	"MindSetCatSet" :[{"category_type": "Accelerator"},
+			{"category_type": "AppLibrary"},
+			{"category_type": "Project"}],
+	"NPSSet": [
+		{"Key": "10", "Value": "10"},
+		{"Key": "09", "Value": "09"},
+		{"Key": "08", "Value": "08"},
+		{"Key": "07", "Value": "07"},
+		{"Key": "06", "Value": "06"},
+		{"Key": "05", "Value": "05"},
+		{"Key": "04", "Value": "04"},
+		{"Key": "03", "Value": "03"},
+		{"Key": "02", "Value": "02"},
+		{"Key": "01", "Value": "01"}
+	]
+ 
+}

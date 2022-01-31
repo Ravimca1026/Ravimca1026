@@ -1,0 +1,52 @@
+<mvc:View
+    controllerName="com.mindset.applibrary.admin.AppTracker.controller.List"
+    xmlns="sap.m"
+    xmlns:semantic="sap.f.semantic"
+    xmlns:mvc="sap.ui.core.mvc">
+
+    <Page title="{i18n>appTitle}" titleAlignment="Center" titleLevel="H1" showNavButton="false" navButtonPress="onNavBack">
+		<content>
+			<List id="list" width="auto" class="sapFDynamicPageAlignContent" items="{ path: 'ViewModel>/AppCategories', sorter: {
+				path: 'categoryname'}}"
+				busyIndicatorDelay="{masterView>/delay}" noDataText="{masterView>/noDataText}" 
+				mode="{= ${device>/system/phone} ? 'None' : 'SingleSelectMaster'}" growing="true" growingScrollToLoad="true"
+				updateFinished=".onUpdateFinished" selectionChange=".onSelectionChange">
+				<headerToolbar>
+					<OverflowToolbar>
+					<ToolbarSpacer/>
+						<SearchField id="searchField" showRefreshButton="true" tooltip="{i18n>masterSearchTooltip}" search=".onSearch" width="auto">
+							<layoutData>
+								<OverflowToolbarLayoutData minWidth="150px" maxWidth="240px" shrinkable="true" priority="NeverOverflow"/>
+							</layoutData>
+						</SearchField>
+						<!-- <ToolbarSpacer/>
+						<Button id="sortButton" press=".onOpenViewSettings" icon="sap-icon://sort" type="Transparent"/> -->
+					</OverflowToolbar>
+				</headerToolbar>
+				<items>
+					<ObjectListItem type="Navigation" press=".onSelectionChange" title="{ViewModel>categoryname}"
+						number="{ViewModel>count}"	visible ="{= ${ViewModel>delete} ? false : true}">
+						<firstStatus>
+							<ObjectStatus
+								text="{ViewModel>total} %"
+								state="{= ${ViewModel>total} === 100 ? 'Success' : 'Warning'}" />
+						</firstStatus>
+						<ObjectAttribute text="{ViewModel>sCategory_type}"/>						
+						</ObjectListItem>
+				</items>
+			</List>
+		</content>
+		<footer>
+			<OverflowToolbar>
+				<Button type="Emphasized" icon="sap-icon://manager" press="onLoadMSTData" ariaHasPopup="Dialog" tooltip="{i18n>mind_set_teams}"/>
+				<ToolbarSpacer/>				
+				<Button type="Emphasized" icon="sap-icon://add" press="showFragmentCatalog"/>
+				<Button type="Emphasized" icon="sap-icon://edit" press="onEnableButtons" visible="{ViewModel>/listButtonVisible}"/>
+				<Button type="Reject" icon="sap-icon://delete" press="onListItemDelete" visible="{= ${ViewModel>/listButtonVisible} ? false : true}"/>
+				<Button type="Emphasized" icon="sap-icon://edit" press="onListItemEdit" visible="{= ${ViewModel>/listButtonVisible} ? false : true}"/>
+				<Button type="Reject" icon="sap-icon://decline" press="onDecline" visible="{= ${ViewModel>/listButtonVisible} ? false : true}"/>
+			</OverflowToolbar>
+		</footer>
+	</Page>
+
+</mvc:View>

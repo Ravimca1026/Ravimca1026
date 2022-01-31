@@ -1,0 +1,50 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<VBox class="sapUiSmallMargin">
+		<f:SimpleForm editable="true" layout="ResponsiveGridLayout"  labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12"
+			adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1"
+			singleContainerFullSize="false">
+			<f:content>
+				<Label text="{i18n>dev_team}"/>
+				<!-- <MultiInput change="onChangeMultiInputDev" tokenUpdate="onTokenUpdateDev" tokens="{path: 'ViewModel>/AppObject/DevTeam', templateShareable:true}"
+					showValueHelp="false">
+					<tokens>
+						<Token key="{ViewModel>Value}" text="{ViewModel>Value}"/> 
+					</tokens>								
+				</MultiInput> -->
+				<MultiComboBox selectedKeys="{ViewModel>/AppObject/DevTeam}"
+					items="{
+						path: 'ViewModel>/MindSetTeamsSet',
+						sorter: { path: 'email' }
+					}">
+					<core:Item key="{ViewModel>email}" text="{ViewModel>email}"/>
+				</MultiComboBox>
+				<Label text="{i18n>architect}"/>
+				<!-- <Input value="{ViewModel>/AppObject/Architect}"/> -->
+				<MultiComboBox selectedKeys="{ViewModel>/AppObject/Architect}"
+					items="{
+						path: 'ViewModel>/MindSetTeamsSet',
+						sorter: { path: 'email' }
+					}">
+					<core:Item key="{ViewModel>email}" text="{ViewModel>email}"/>
+				</MultiComboBox>
+
+				<Label text="# {i18n>of_sprints}"/>
+				<Input value="{path: 'ViewModel>/AppObject/NoofSprints', type:'sap.ui.model.type.Integer'}" type="Number"/>
+				<Label text="{i18n>scrum_master}"/>
+				<!-- <Input value="{ViewModel>/AppObject/ScrumMaster}"/> -->
+				<MultiComboBox selectedKeys="{ViewModel>/AppObject/ScrumMaster}"
+					items="{
+						path: 'ViewModel>/MindSetTeamsSet',
+						sorter: { path: 'email' }
+					}">
+					<core:Item key="{ViewModel>email}" text="{ViewModel>email}"/>
+				</MultiComboBox>
+				<Label text="{i18n>estimations}"/>
+				<Input value="{path: 'ViewModel>/AppObject/Estimations', type:'sap.ui.model.type.Integer'}" type="Number"/> 
+				<Text text ="{i18n>hours}"/>
+				<Label text="{i18n>git_link}"/>
+				<Input value="{ViewModel>/AppObject/GITLink}"/>
+			</f:content>
+		</f:SimpleForm>
+	</VBox>
+</core:FragmentDefinition>

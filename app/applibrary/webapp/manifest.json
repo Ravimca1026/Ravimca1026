@@ -1,0 +1,139 @@
+{
+  "_version": "1.32.0",
+  "sap.app": {
+    "id": "com.mindset.applibrary.admin.AppTracker",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "dataSources": {
+      "mainService": {
+        "uri": "/sap/opu/odata/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/metadata.xml",
+          "odataVersion": "4.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.97.0",
+      "libs": {
+        "sap.ui.core": {},
+        "sap.m": {},
+        "sap.f": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "com.mindset.applibrary.admin.AppTracker.i18n.i18n"
+        }
+      },
+      "ViewModel": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"uri": "./model/DefaultViewModel.json",
+				"preload": true
+			}
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.f.routing.Router",
+        "viewType": "XML",
+        "viewPath": "com.mindset.applibrary.admin.AppTracker.view",
+        "controlId": "layout",
+        "controlAggregation": "beginColumnPages",
+        "async": true
+      },
+      "routes": [
+        {
+          "pattern": "",
+          "name": "list",
+          "target": ["list", "detailObjectNotFound"]
+        },
+        {
+          "pattern": "{objectId}",
+          "name": "object",
+          "target": [
+            "list",
+            "object"
+          ]
+        },
+        {
+					"pattern": "{catId}/{appid}",
+					"name": "createedit",
+					"target": "createedit"
+				}
+      ],
+      "targets": {
+        "list": {
+          "viewName": "List",
+          "viewLevel": 1,
+          "viewId": "list"
+        },
+        "object": {
+          "viewName": "Detail",
+          "viewId": "detail",
+          "viewLevel": 1,
+          "controlAggregation": "midColumnPages"
+        },
+        "createedit": {
+					"viewLevel": 3,
+					"viewName": "CreateEdit",
+					"viewId": "createedit"
+				},
+        "detailObjectNotFound": {
+          "viewName": "DetailObjectNotFound",
+          "viewId": "detailObjectNotFound",
+          "controlAggregation": "midColumnPages"
+        },
+        "notFound": {
+          "viewName": "NotFound",
+          "viewId": "notFound"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "com.mindset.applibrary.admin.AppTracker.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "app"
+    }
+  }
+}

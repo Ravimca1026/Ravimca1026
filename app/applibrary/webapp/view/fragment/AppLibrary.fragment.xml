@@ -1,0 +1,40 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<VBox class="sapUiSmallMargin">
+		<f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12"
+			adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1"
+			singleContainerFullSize="false">
+			<f:content>
+				<Label text="{i18n>assignto}"/>
+				<!-- <Select forceSelection="false" selectedKey="{ViewModel>/AppObject/AssignTo}">
+					<core:Item key="SalesTeam" text="Sales Team"/>
+					<core:Item key="SoftwareTeam" text="Software Team"/>
+				</Select> -->
+				<MultiComboBox selectedKeys="{ViewModel>/AppObject/AssignTo}">
+					<core:Item key="SalesTeam" text="Sales Team"/>
+					<core:Item key="SoftwareTeam" text="Software Team"/>
+					<!-- <core:Item key="{ViewModel>email}" text="{ViewModel>email}"/> -->
+				</MultiComboBox>
+
+				<Label text="{i18n>demo_ready}"/>
+				<Switch state="{ViewModel>/AppObject/DemoReady}" customTextOn="Yes" customTextOff="No">
+					<layoutData>
+						<FlexItemData growFactor="1"/>
+					</layoutData>
+				</Switch>
+				
+				<Label text="{i18n>demo_video}"/>
+				<Input value="{ViewModel>/AppObject/DemoVideo}"/>
+				<Label text="{i18n>integrate_to_appLibrary}"/>
+				<Switch state="{ViewModel>/AppObject/IntegratetoAppLibrary}" customTextOn="Yes" customTextOff="No">
+					<layoutData>
+						<FlexItemData growFactor="1"/>
+					</layoutData>
+				</Switch>
+				<Label text="{i18n>semantic_obj}"/>
+				<Input value="{ViewModel>/AppObject/SemanticObj}"/>
+				<Label text="Action"/>
+				<Input value="{ViewModel>/AppObject/Action}"/>
+			</f:content>
+		</f:SimpleForm>
+	</VBox>
+</core:FragmentDefinition>

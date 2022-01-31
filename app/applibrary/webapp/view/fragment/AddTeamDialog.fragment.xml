@@ -1,0 +1,23 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form">
+	<Dialog title="{i18n>mind_set_teams}">
+		<f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12"
+			adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1"
+			singleContainerFullSize="false">
+			<f:content>
+				<!-- <Label text="{i18n>first_name}"/>
+				<Input value="{ViewModel>first_name}"/>
+				<Label text="{i18n>last_name}"/>
+				<Input value="{ViewModel>last_name}"/> -->
+				<Label text="{i18n>mind_set_teams_email}"/>
+				<Input value="{ViewModel>/teamObj/email}"/>
+				<!-- <Label text="{i18n>category_type}"/>
+				<Input value="Mindset IP"/> -->
+			</f:content>
+		</f:SimpleForm>
+		<buttons >
+			<Button text="{i18n>create}" press="onCreateNewTeamOrder" type="Emphasized" />
+			<Button text="{i18n>cancel}" press="onCreateNewTeamCancel"/>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

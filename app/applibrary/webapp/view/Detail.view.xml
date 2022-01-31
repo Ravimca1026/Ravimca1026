@@ -1,0 +1,57 @@
+ <mvc:View controllerName="com.mindset.applibrary.admin.AppTracker.controller.Detail" xmlns="sap.m" xmlns:semantic="sap.f.semantic"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:footerbar="sap.ushell.ui.footerbar">
+	<Page title="{i18n>appCatDesc}" titleAlignment="Center" titleLevel="H1" showNavButton="true" navButtonPress="onNavDetailBack">
+		<content>
+			<Table id="idProductsTable" inset="false" items="{ path: 'ViewModel>/tableArray'}">
+				<headerToolbar>
+					<OverflowToolbar>
+						<content>
+							<ToolbarSpacer/>
+							<Button type="Emphasized" icon="sap-icon://add" press="onCreatePress"/>
+						</content>
+					</OverflowToolbar>
+				</headerToolbar>
+				<columns>
+					<Column width="12rem">
+						<Text text="{i18n>appname}"/>
+					</Column>
+					<Column width="12rem" minScreenWidth="Tablet" demandPopin="true">
+						<Text text="{i18n>industry}"/>
+					</Column>
+					<Column width="12rem" minScreenWidth="Tablet" demandPopin="true">
+						<Text text="{i18n>techtags}"/>
+					</Column>
+					<!-- <Column>
+						<Text text="Rating"/>
+					</Column> -->
+					<Column width="8rem" minScreenWidth="Tablet" demandPopin="true">
+						<Text text="{i18n>status}"/>
+					</Column>
+					<Column width="3rem" minScreenWidth="Tablet" demandPopin="true">
+						<Text text=""/>
+					</Column>
+					<Column width="3rem" hAlign="End">
+						<Text text=""/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem visible ="{= ${ViewModel>delete} ? false : true}">
+						<cells>
+							<ObjectIdentifier title="{ViewModel>AppName}"/>
+							<Text text="{ViewModel>Industry}"/>
+							<Text text="{ViewModel>sTechTags}" wrapping="true"/>
+							<!-- <Text text="{ViewModel>Rating}"/> -->
+							<!-- <Text text="{ViewModel>Status}"/> -->
+							<ObjectStatus
+								text="{ViewModel>Status}"
+								state="{= ${ViewModel>Status} === 'Completed' ? 'Success' : 'Error'}" />
+								
+							<Button type="Reject" icon="sap-icon://delete" press="onDeletePress"/>
+							<Button icon="sap-icon://edit" press="onEditPress"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+	</Page>
+</mvc:View>

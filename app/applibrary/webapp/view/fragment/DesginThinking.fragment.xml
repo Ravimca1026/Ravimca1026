@@ -1,0 +1,31 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<VBox class="sapUiSmallMargin">
+		<f:SimpleForm editable="true" layout="ResponsiveGridLayout"  labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12"
+			adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1"
+			singleContainerFullSize="false">
+			<f:content>
+				<Label text="{i18n>design_thinking}"/> 
+				<RadioButtonGroup select="onSelectRadio" id="onRadioButton" selectedIndex="{ViewModel>/AppObject/DesignThinking}">
+					<RadioButton text="Yes" />
+					<RadioButton text="No" />
+				</RadioButtonGroup> 
+				<Label text="{i18n>design_thinking_team}"/>
+				<!-- <Input value="{ViewModel>/AppObject/DesignThinkingTeam}" visible="{ViewModel>/designVisible}"></Input> -->
+				<MultiComboBox selectedKeys="{ViewModel>/AppObject/DesignThinkingTeam}"
+					items="{
+						path: 'ViewModel>/MindSetTeamsSet',
+						sorter: { path: 'email' }
+					}" visible="{ViewModel>/designVisible}">
+					<core:Item key="{ViewModel>email}" text="{ViewModel>email}"/>
+				</MultiComboBox>
+				<Label text="{i18n>dt_date}"/>
+				<DatePicker value="{ViewModel>/AppObject/DTDate}" valueFormat = "yyyy-MM-dd" displayFormat = "MM/dd/YYYY" 
+					visible="{ViewModel>/designVisible}"/>
+				<Label text="{i18n>dt_artifacts_gdrive}"/>
+				<Input value="{ViewModel>/AppObject/DTArtifactsGdrive}" visible="{ViewModel>/designVisible}"/>
+				<Label text="{i18n>prototype_link}"/>
+				<Input value="{ViewModel>/AppObject/PrototypeLink}" visible="{ViewModel>/designVisible}"/>
+			</f:content>
+		</f:SimpleForm>
+	</VBox>
+</core:FragmentDefinition>

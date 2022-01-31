@@ -1,0 +1,17 @@
+<mvc:View
+    controllerName="com.mindset.applibrary.admin.AppTracker.controller.App"
+    displayBlock="true"
+    height="100%"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:mvc="sap.ui.core.mvc">
+    <Shell>    
+        <App id="app">
+            <f:FlexibleColumnLayout
+                id="layout"
+                layout="{appView>/layout}"
+                backgroundDesign="Translucent">
+            </f:FlexibleColumnLayout>
+        </App>
+    </Shell>
+</mvc:View>

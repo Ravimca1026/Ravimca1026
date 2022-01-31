@@ -1,0 +1,26 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form">
+	<Dialog title="{i18n>create_catalog}">
+		<f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12"
+			adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1"
+			singleContainerFullSize="false">
+			<f:content>
+				<Label text="{i18n>edit_category_name}"/>
+				<Input value="{ViewModel>/CatEditObj/categoryname}"/>
+				<Label text="{i18n>category_type}"/>
+				<!-- <Input value="Mindset IP"/> -->
+				<MultiComboBox selectedKeys="{ViewModel>/CatEditObj/category_type}"
+					items="{
+						path: 'ViewModel>/MindSetCatSet',
+						sorter: { path: 'category_type' }
+					}">
+					<core:Item key="{ViewModel>category_type}" text="{ViewModel>category_type}"/>
+				</MultiComboBox>
+			</f:content>
+		</f:SimpleForm>
+		<buttons >
+			<Button text="{i18n>edit}" press="onCreateEditOrder" type="Emphasized" />
+			<Button text="{i18n>cancel}" press="onCreateEditOrderCancel"/>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

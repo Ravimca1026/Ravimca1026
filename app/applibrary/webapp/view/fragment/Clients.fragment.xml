@@ -1,0 +1,83 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<VBox class="sapUiSmallMargin">
+		<Table  inset="false" items="{ViewModel>/AppObject/appClients}">
+			<headerToolbar>
+				<OverflowToolbar>
+					<content>
+						<ToolbarSpacer/>
+						<Button icon="sap-icon://add" press="onAddClients"/>
+					</content>
+				</OverflowToolbar>
+			</headerToolbar>
+
+			<columns>
+				<Column width="15em">
+					<Text text="{i18n>client_name}"/>
+				</Column>
+				<Column minScreenWidth="Tablet" demandPopin="true">
+					<Text text="{i18n>location}"/>
+				</Column>				
+				<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+					<Text text="{i18n>doc_links}"/>
+				</Column>
+				<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+					<Text text="# {i18n>end_users}"/>
+				</Column>
+				<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+					<Text text="{i18n>rating}"/>
+				</Column>
+				<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+					<Text text="{i18n>nps}"/>
+				</Column>
+				<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+					<Text text="{i18n>feedback}"/>
+				</Column>
+				<Column width="3rem">
+					<Text text=""/>
+				</Column>
+				<Column width="3rem" hAlign="End">
+					<Text text=""/>
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem vAlign="Middle" visible ="{= ${ViewModel>delete} ? false : true}">
+					<cells>
+						<Input value="{ViewModel>ClientName}" enabled="{= ${ViewModel>saveFlage} ? false : true}"/>
+						<Input value="{ViewModel>Location}" enabled="{= ${ViewModel>saveFlage} ? false : true}"/>
+						<!-- <Input value="{ViewModel>Feedback}" enabled="{= ${ViewModel>saveFlage} ? false : true}"/> -->
+						<Input value="{ViewModel>DocLinks}" enabled="{= ${ViewModel>saveFlage} ? false : true}"/>
+						<Input value="{ViewModel>EndUsers}" enabled="{= ${ViewModel>saveFlage} ? false : true}"/>
+						<!-- <Input value="{path: 'ViewModel>Rating', type:'sap.ui.model.type.Integer'}" 
+							enabled="{= ${ViewModel>saveFlage} ? false : true}" type="Number"/> -->
+						<RatingIndicator maxValue="5" class="sapUiSmallMarginBottom"
+							 value="{path: 'ViewModel>Rating', type:'sap.ui.model.type.Integer'}"
+							  editable="{= ${ViewModel>saveFlage} ? false : true}"/>
+						<!-- <Input value="{path: 'ViewModel>NPS', type:'sap.ui.model.type.Integer'}" 
+							enabled="{= ${ViewModel>saveFlage} ? false : true}" type="Number"/> -->
+						<Select selectedKey="{ViewModel>NPS}" enabled="{= ${ViewModel>saveFlage} ? false : true}"
+							 forceSelection="false">
+							<items>
+								<core:Item text="10" key="10"/>
+								<core:Item text="09" key="9"/>
+								<core:Item text="08" key="8"/>
+								<core:Item text="07" key="7"/>
+								<core:Item text="06" key="6"/>
+								<core:Item text="05" key="5"/>
+								<core:Item text="04" key="4"/>
+								<core:Item text="03" key="3"/>
+								<core:Item text="02" key="2"/>
+								<core:Item text="01" key="1"/>
+							</items>
+						</Select>
+						<Input value="{ViewModel>Feedback}" enabled="{= ${ViewModel>saveFlage} ? false : true}"/>
+						<HBox> 
+							<Button icon="sap-icon://save" press="onUpdateClients" visible ="{= ${ViewModel>saveFlage} ? false : true}"/>
+							<Button icon="sap-icon://edit" press="onEditClients" visible ="{= ${ViewModel>saveFlage} ? true : false}"/>
+						</HBox> 
+						<Button type="Reject" icon="sap-icon://delete" press="onClientsDelete"/>
+					</cells>
+				</ColumnListItem>
+			</items>
+		</Table>
+	</VBox>
+</core:FragmentDefinition>
